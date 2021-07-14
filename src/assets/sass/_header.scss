@@ -1,0 +1,123 @@
+@import 'mixins';
+@import 'variables';
+
+.header {
+	left: 0;
+	top: 0;
+	position: fixed;
+	color: $text-white;
+	padding: 1rem 3rem 0 3rem;
+	width: 100%;
+	background: linear-gradient(to bottom, $bg-color, transparent);
+	@include flex-row();
+
+	.header__logo {
+		margin-right: 2rem;
+	}
+	.header__mobile {
+		// flex: 1;
+		@include flex-row(flex-start, center);
+		display: none;
+		@media screen and (max-width: 1150px) {
+			display: flex;
+			&:hover + .header__nav {
+				height: auto;
+				top: 80px;
+			}
+		}
+		a {
+			color: $text-white;
+			i {
+				margin-left: 1rem;
+			}
+		}
+	}
+	.header__nav {
+		flex: 1;
+		@include flex-row(flex-start, center);
+		.header__links {
+			@include flex-row(flex-start, center);
+			gap: 1.5rem;
+			.header__item {
+				.header__link {
+					font-size: 1.2em;
+					color: $text-white;
+					&:hover {
+						color: $text-white-active;
+					}
+				}
+				.header__link.active {
+					color: white;
+				}
+			}
+		}
+		@media screen and (max-width: 1150px) {
+			&:hover {
+				height: auto;
+				top: 80px;
+			}
+			transition: top 0.5s ease;
+			height: 0;
+			overflow: hidden;
+			position: absolute;
+			left: 200px;
+			top: -180px;
+			.header__links {
+				gap: 0;
+				@include flex-column();
+
+				border-top: 2px solid white;
+
+				.header__item {
+					font-size: 0.9rem;
+					padding: 0.5rem 0.5rem;
+					background-color: rgba(0, 0, 0, 0.8);
+					width: 100%;
+					text-align: center;
+					&:hover {
+						background-color: rgba(40, 40, 40, 0.9);
+						cursor: pointer;
+					}
+				}
+			}
+		}
+	}
+	.header__buttons {
+		margin-left: auto;
+		@include flex-row(flex-start, center);
+		gap: 1rem;
+		.header__searchbar {
+			button {
+				@include flex-row(flex-start, center);
+				background-color: transparent;
+				border: none;
+				outline: none;
+				color: $text-white;
+
+				input {
+					color: white;
+					padding: 0.5rem 0;
+					width: 0;
+					border: white 0px solid;
+					border-radius: 5px;
+					outline: none;
+					transition: all 0.5s ease;
+					margin-right: 10px;
+					background-color: rgba(0, 0, 0, 0.5);
+					&:focus {
+						padding: 0.5rem;
+						border-width: 1px;
+						width: 180px;
+					}
+				}
+				&:focus {
+					input {
+						padding: 0.5rem;
+						border-width: 1px;
+						width: 180px;
+					}
+				}
+			}
+		}
+	}
+}

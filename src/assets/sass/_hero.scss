@@ -1,0 +1,93 @@
+@import 'variables';
+@import 'mixins';
+.hero {
+	font-size: 0.8vw;
+	@media screen and (max-width: 1400px) {
+		font-size: 1vw;
+	}
+	@media screen and (max-width: 1200px) {
+		font-size: 1.1vw;
+	}
+	min-height: 90vh;
+	background-image: linear-gradient(transparent 40%, rgba(20, 20, 20, 1)),
+		linear-gradient(transparent 40%, rgba(20, 20, 20, 1)),
+		linear-gradient(transparent 40%, rgba(20, 20, 20, 1)),
+		linear-gradient(transparent 40%, rgba(20, 20, 20, 1)),
+		url('./../images/bg-hero.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	.hero__info {
+		min-height: 90vh;
+
+		padding-top: 9em;
+		padding-left: 3em;
+		// background-color: white;
+		background-image: linear-gradient(
+			to right ,
+			rgba(20, 20, 20, 0.6) 40%,
+			transparent
+		);
+		@media screen and (max-width: 1200px) {
+			background-image: linear-gradient(
+				to right,
+				rgba(0, 0, 0, 0.6) 50%,
+				transparent
+			);
+		}
+		max-width: 40%;
+		color: white;
+		.hero__title {
+			font-weight: 300;
+			font-size: 4em;
+			margin-bottom: 1em;
+		}
+		.hero__classification {
+			margin-bottom: 2em;
+			@include flex-row(flex-start, center);
+			.hero__redbox {
+				font-weight: 600;
+				background-color: $color-red-netflix;
+				padding: 0.5em;
+				text-align: center;
+				border-radius: 8px;
+				margin-right: 1em;
+			}
+			.hero__subtitle {
+				font-size: 1.7em;
+				font-weight: 600;
+			}
+		}
+		.hero__overview {
+			font-size: 1.4em;
+			line-height: 2.2em;
+			margin-bottom: 2em;
+		}
+		.hero__buttons {
+			button {
+				border: none;
+				outline: none;
+				font-size: 1.3em;
+				padding: 0.8em 1.5em;
+				cursor: pointer;
+				border-radius: 4px;
+				i {
+					margin-right: 1em;
+				}
+				&:hover {
+					background-color: #c6c5c3;
+				}
+				&.play {
+					margin-right: 0.7em;
+				}
+				&.info {
+					background-color: rgba(180, 180, 180, 0.6);
+					color: $text-white-active;
+					&:hover {
+						background-color: rgba(180, 180, 180, 0.4);
+					}
+				}
+			}
+		}
+	}
+}

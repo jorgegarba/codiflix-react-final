@@ -1,0 +1,110 @@
+@import 'variables';
+@import 'mixins';
+.modal-codiflix {
+	.modal__banner {
+		min-height: 50vh;
+		// background-image: linear-gradient(to bottom, transparent 60%, black),
+		// 	url('./../images/bg-hero.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+	}
+	.modal__info {
+		min-height: 50vh;
+		padding-top: 15rem;
+		padding-left: 3em;
+		background-image: linear-gradient(
+			to right,
+			rgba(0, 0, 0, 0.6) 30%,
+			transparent
+		);
+		color: $text-white;
+		.modal__title {
+			margin-bottom: 1rem;
+		}
+		.modal__buttons {
+			margin-bottom: 1.5rem;
+			@include flex-row();
+			button.play {
+				border: none;
+				outline: none;
+				font-size: 1em;
+				padding: 0.5em 1em;
+				cursor: pointer;
+				border-radius: 4px;
+				i {
+					margin-right: 0.5em;
+				}
+				&:hover {
+					background-color: #c6c5c3;
+				}
+				&.play {
+					margin-right: 0.7em;
+				}
+			}
+			button.action {
+				margin-right: 5px;
+				i {
+					font-size: 1.2rem;
+				}
+				cursor: pointer;
+				padding: 0.6rem;
+				border: 1px solid #aaa;
+				color: #aaa;
+				background-color: transparent;
+				border-radius: 50%;
+				@include flex-row(center, center);
+
+				&:hover {
+					border: 1px solid white;
+					color: white;
+				}
+			}
+		}
+		.modal__row {
+			@include flex-row();
+			.modal__text {
+				flex: 70%;
+				.modal__statistics {
+					margin-bottom: 1.5rem;
+					padding: 0 0.3rem;
+					font-weight: 500;
+					gap: 0.8rem;
+					@include flex-row();
+					.percent {
+						color: #46d369;
+					}
+					.age {
+						border: 0.5px solid white;
+						padding: 0 0.4rem;
+						border-radius: 2px;
+					}
+					.quality {
+						@include flex-row(center, center);
+						border: 0.5px solid white;
+						padding: 0 0.4rem;
+						border-radius: 2px;
+						font-size: 0.8rem;
+					}
+				}
+				.modal__overview {
+					line-height: 1.5em;
+					margin-bottom: 2em;
+				}
+			}
+			.modal__fields {
+				flex: 30%;
+				.modal__cast {
+					margin-bottom: 0.5rem;
+					.field {
+						color: #888;
+						font-size: 0.8rem;
+					}
+					.value {
+						color: $text-white;
+					}
+				}
+			}
+		}
+	}
+}

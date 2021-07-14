@@ -1,0 +1,68 @@
+@import 'variables';
+@import 'mixins';
+.form-login {
+	width: 500px;
+	padding: 3rem;
+	background-color: rgba($color: #000000, $alpha: 0.65);
+	position: relative;
+	left: 50%;
+	transform: translate(-50%, 0);
+	border-radius: 5px;
+	hr {
+		border: none;
+		border-bottom: 1px solid #444;
+		width: 90%;
+		margin: auto;
+	}
+	.form-login__title {
+		color: $text-white;
+		margin-bottom: 1rem;
+	}
+	.form-login__group {
+		margin-bottom: 1.5rem;
+		@include flex-column();
+
+		input {
+			color: $text-white;
+			border-radius: 5px;
+			font-size: 1.5rem;
+			background-color: #333;
+			border: none;
+			outline: none;
+			padding: 1rem;
+			&.error {
+				border-bottom: 2px solid #db9615;
+			}
+			&:focus {
+				background-color: #444;
+			}
+		}
+		small {
+			margin-top: 0.3rem;
+			padding-left: 3px;
+			color: #db9615;
+		}
+		.form-login__submit {
+			background-color: #e50914;
+			padding: 1rem;
+			border: none;
+			outline: none;
+			border-radius: 5px;
+			color: white;
+			font-size: 1.2rem;
+			cursor: pointer;
+		}
+	}
+	.form-login__register {
+		margin-top: 1rem;
+		color: #888;
+		text-align: center;
+		a {
+			color: #e50914;
+			&:hover {
+				font-size: 1.1rem;
+				text-decoration: underline;
+			}
+		}
+	}
+}

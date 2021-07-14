@@ -1,0 +1,19 @@
+@import 'globals';
+.dashboard {
+	padding-bottom: 10rem;
+	@import 'variables';
+	@import 'header';
+	@import 'hero';
+	@import 'category';
+	.dashboard__container {
+		@include flex-row(center);
+		flex-wrap: wrap;
+	}
+	.dashboard__title-category {
+		padding-left: 4rem;
+		color: $text-white;
+		font-weight: 500;
+		margin-bottom: 2.5rem;
+		margin-top: 2rem;
+	}
+}
