@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -6,10 +7,24 @@ import { closeSessionAction } from '../../../redux/actions/authAction';
 import logo from './../../../assets/images/logo.png';
 const MainHeader = () => {
 	const { usuNom } = useSelector((state) => state.auth);
+	const [activeHeader, setActiveHeader] = useState(false);
 	const dispatch = useDispatch();
 
+	useEffect(() => {
+		const changeHeader = () => {
+			if (window.scrollY >= 80) {
+				setActiveHeader(true);
+			} else {
+				setActiveHeader(false);
+			}
+		};
+		window.addEventListener('scroll', changeHeader);
+		return () => {
+			window.removeEventListener('scroll', changeHeader);
+		};
+	}, []);
 	return (
-		<header className="header">
+		<header className={`header ${activeHeader ? 'active' : ''}`}>
 			<div className="header__logo">
 				<figure>
 					<img src={logo} alt="logo" />

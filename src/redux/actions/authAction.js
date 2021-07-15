@@ -96,5 +96,6 @@ export const startSessionWithLocalStorage = () => {
 };
 
 export const closeSessionAction = () => {
+	localStorage.removeItem('token');
 	return { type: CLOSE_SESSION };
 };

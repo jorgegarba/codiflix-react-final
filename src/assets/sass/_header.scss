@@ -2,6 +2,12 @@
 @import 'variables';
 
 .header {
+	z-index: 80000;
+	&.active {
+		background: none;
+		background-color: #111;
+	}
+	transition: all 0.5s ease;
 	left: 0;
 	top: 0;
 	position: fixed;
